@@ -1,0 +1,305 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <base href="/">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">-->
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/CountrySelecter/css/CountrySelecter.css" />
+    <link rel="stylesheet" href="bower_components/epoch/dist/css/epoch.min.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-bootstrap-datetimepicker/datetimepicker.css" />
+    <link rel="stylesheet" href="bower_components/angular-moment-picker/dist/angular-moment-picker.min.css" />
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/dropdown.js/jquery.dropdown.css" />
+    <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+      <link href="styles/main.css" rel="stylesheet">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="frontendApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div ng-controller="NavbarController">
+      <div ng-show="isPhone">
+        <div class="navbar navbar-default navbar-fixed-top primary-font">
+          <div class="navbar-more collapse navbar-collapse"  id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li ng-if="isAuthenticated">
+                <a ui-sref="account">
+                  <span class="menu-icon fa fa-user"></span>
+                  Cont
+                </a>
+              </li>
+              <li ng-if="isAuthenticated && (isDoctor || isAssistant)">
+                <a ui-sref="home">
+                  <span class="menu-icon fa fa-bed"></span>
+                  Pacienți
+                </a>
+              </li>
+              <li ng-if="isAuthenticated && isPatient">
+                <a href="#">
+                  <span class="menu-icon fa fa fa-stethoscope"></span>
+                  Asistent
+                </a>
+              </li>
+              <li ng-if="isAuthenticated && isAdministrator">
+                <a ui-sref="adduser">
+                  <span class="menu-icon fa fa-user-plus"></span>
+                  Utilizator nou
+                </a>
+              </li>
+              <li ng-if="isAuthenticated && isPatient" class="search-item">
+                <a ui-sref="search">
+                  <span class="menu-icon fa fa-search"></span>
+                  Caută medic
+                </a>
+              </li>
+              <li ng-if="isAuthenticated">
+                <a ui-sref="signout">
+                  <span class="menu-icon fa fa-sign-out"></span>
+                  Deconectare
+                </a>
+              </li>
+            </ul>
+          </div>
+          <ul class="nav navbar-nav mobile-bar">
+            <li ng-if="isAuthenticated">
+              <a ui-sref="home">
+                <span class="menu-icon fa fa-home"></span>
+                Acasă
+              </a>
+            </li>
+            <li ng-if="isAuthenticated && isPatient">
+              <a href="#">
+                <span class="menu-icon fa fa-user-md"></span>
+                Medic
+              </a>
+            </li>
+            <li ng-if="isAuthenticated && (isPatient || isDoctor || isAssistant)">
+              <a ui-sref="notifications">
+                <span class="menu-icon fa fa-bell"></span>
+                Notificări
+              </a>
+            </li>          
+            <li ng-if="isAuthenticated">
+              <a ng-href="" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" >
+                <span class="menu-icon fa fa-bars"></span>
+                Mai multe
+              </a>
+            </li>
+            <li ng-if="!isAuthenticated">
+              <a ui-sref="signin">
+                <span class="menu-icon fa fa-sign-in"></span>
+                Intră în cont
+              </a>
+            </li>
+            <li ng-if="!isAuthenticated">
+              <a ui-sref="signup">
+                <span class="menu-icon fa fa-user-plus"></span>
+                Înregistrare
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div ng-show="(isScreen || isDesktop || isTablet) && !isPhone">
+        <div class="navbar navbar-default navbar-fixed-top primary-font">
+          <ul class="nav navbar-nav" style="margin-left: 10px">
+            <li ng-if="isAuthenticated">
+              <a ui-sref="home">
+                <span class="menu-icon fa fa-home"></span>
+                Acasă
+              </a>
+            </li>
+            <li ng-if="isAuthenticated">
+              <a ui-sref="account">
+                <span class="menu-icon fa fa-user"></span>
+                Cont
+              </a>
+            </li>
+            <li ng-if="isAuthenticated && (isDoctor || isAssistant)">
+              <a ui-sref="home">
+                <span class="menu-icon fa fa-bed"></span>
+                Pacienții tăi
+              </a>
+            </li>
+            <li ng-if="isAuthenticated && isAdministrator">
+              <a ui-sref="home">
+                <span class="menu-icon fa fa-user-plus"></span>
+                Adaugă un nou utilizator
+              </a>
+            </li>
+            <li ng-if="isAuthenticated && isPatient">
+              <a href="#">
+                <span class="menu-icon fa fa-user-md"></span>
+                Medicul tău
+              </a>
+            </li>
+            <li ng-if="isAuthenticated && isPatient">
+              <a href="#">
+                <span class="menu-icon fa fa fa-stethoscope"></span>
+                Asistentul tău
+              </a>
+            </li>
+            <li ng-if="isAuthenticated && isPatient" class="search-item">
+              <a ui-sref="search">
+                <span class="menu-icon fa fa-search"></span> Caută medic
+              </a>
+            </li>
+
+          </ul>
+          <ul uib-dropdown is-open="status.isopen" ng-if="isAuthenticated && (isPatient || isDoctor || isAssistant)" class="nav navbar-nav notif">
+            <li class="dropdown">
+              <a href="#" if="bell" class="dropdown-toggle" data-toggle="dropdown" uib-dropdown-toggle ng-disabled="disabled" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-bell-o" aria-hidden="true"><span ng-if="newRequests">{{notifications}}</span></i>
+              </a>
+              <div class="dropdown-menu notify-drop" uib-dropdown-menu role="menu" aria-labelledby="bell">
+                <div class="notify-drop-title">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">Notificări <span ng-if="newRequests">({{notifications}})</span></div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 text-right"><i class="fa fa-times" aria-hidden="true"></i></div>
+                  </div>
+                </div>
+                <br>
+                <div ng-if="isDoctor" class="drop-content" ng-repeat="notif in allNotifications track by $index">
+                  <div  class="notification-tile">
+                    <div class="col-md-6 col-sm-6 col-xs-6">{{notif.Patient.UserDetails.LastName + ' ' + notif.Patient.UserDetails.FirstName}} </div>
+                    <button class="btn btn-success btn-xs col-md-3 col-sm-3 col-xs-3" ng-click="approve(notif.Patient.Id)">Acceptă</button>
+                    <button class="btn btn-danger btn-xs col-md-3 col-sm-3 col-xs-3" ng-click="reject(notif.Patient.Id)">Respinge</button>
+                  </div>
+                  <br>
+                </div>
+                <div class="notification-tile" ng-show="isPatient && data!=null">
+                  <div class="col-md-8 col-sm-8 col-xs-8">{{message}}</div>
+                  <button class="btn btn-success col-md-4 col-sm-4 col-xs-4" ng-click="ok(data.Patient.Id)">Ok</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" style="margin-right: 10px">
+            <li ng-if="isAuthenticated">
+              <a ui-sref="signout">Deconectare</a>
+            </li>
+            <li ng-if="!isAuthenticated">
+              <a ui-sref="signin">Intră în cont</a>
+            </li>
+            <li ng-if="!isAuthenticated">
+              <a ui-sref="signup">Înregistrează-te</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+       
+    <div ui-view></div>
+     
+    <!-- Add your site or application content here -->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/angular-permission/dist/angular-permission.js"></script>
+    <script src="bower_components/angular-permission/dist/angular-permission-ui.js"></script>
+    <script src="bower_components/angular-permission/dist/angular-permission-ng.js"></script>
+    <script src="bower_components/satellizer/dist/satellizer.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="bower_components/ng-pattern-restrict/src/ng-pattern-restrict.js"></script>
+    <script src="bower_components/xregexp/xregexp-all.js"></script>
+    <script src="bower_components/angular-xregexp/angular-xregexp.js"></script>
+    <script src="bower_components/ng-country-select/dist/ng-country-select.js"></script>
+    <script src="bower_components/angular-countries/dist/angular-data-service.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/CountrySelecter/js/app.js"></script>
+    <script src="bower_components/angular-websocket/dist/angular-websocket.js"></script>
+    <script src="bower_components/angular-socket-io/socket.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/epoch/dist/js/epoch.min.js"></script>
+    <script src="bower_components/ng-epoch/ng-epoch.js"></script>
+    <script src="bower_components/angular-ui-bootstrap-datetimepicker/datetimepicker.js"></script>
+    <script src="bower_components/signalr/jquery.signalR.js"></script>
+    <script src="bower_components/angular-signalr-hub/signalr-hub.js"></script>
+    <script src="bower_components/ng-websocket/ng-websocket.js"></script>
+    <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2012-2022.js"></script>
+    <script src="bower_components/angular-moment-picker/dist/angular-moment-picker.min.js"></script>
+    <script src="bower_components/angular-audio/app/angular.audio.js"></script>
+    <script src="bower_components/bowser/src/bowser.js"></script>
+    <script src="bower_components/dropdown.js/jquery.dropdown.js"></script>
+    <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+    <script src="bower_components/matchmedia/matchMedia.js"></script>
+    <script src="bower_components/matchmedia-ng/matchmedia-ng.js"></script>
+    <!-- endbower -->
+    <!-- endbuild --> 
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <!-- endbuild -->
+		<!--Controllers-->
+		<script src="scripts/controllers/signInController.js"></script>
+        <script src="scripts/controllers/signOutController.js"></script>
+        <script src="scripts/controllers/signUpController.js"></script>
+        <script src="scripts/controllers/navbarController.js"></script>
+        <script src="scripts/controllers/homeController.js"></script>
+        <script src="scripts/controllers/profileController.js"></script>
+        <script src="scripts/controllers/addUserController.js"></script>
+        <script src="scripts/controllers/adminHomeController.js"></script>
+        <script src="scripts/controllers/assistantHomeController.js"></script>
+        <script src="scripts/controllers/doctorHomeController.js"></script>
+        <script src="scripts/controllers/patientHomeController.js"></script>
+        <script src="scripts/controllers/addUserController.js"></script>
+        <script src="scripts/controllers/accountController.js"></script>
+        <script src="scripts/controllers/editAccountController.js"></script>
+        <script src="scripts/controllers/acController.js"></script>
+        <script src="scripts/controllers/ekgController.js"></script>
+        <script src="scripts/controllers/panelController.js"></script>
+        <script src="scripts/controllers/spo2Controller.js"></script>
+        <script src="scripts/controllers/patientController.js"></script>
+        <script src="scripts/controllers/searchController.js"></script>
+        <script src="scripts/controllers/changePasswordController.js"></script>
+
+		<!--Services-->
+        <script src="scripts/services/accountService.js"></script>
+        <script src="scripts/services/SERVER.js"></script>
+        <script src="scripts/services/socket.js"></script>
+        <script src="scripts/services/addUserService.js"></script>
+        <script src="scripts/services/doctorService.js"></script>
+        <script src="scripts/services/userService.js"></script>
+        <script src="scripts/services/notifyService.js"></script>
+        <script src="scripts/services/modalService.js"></script>
+        <script src="scripts/services/notifySocket.js"></script>
+        <script src="scripts/services/searchService.js"></script>
+        <script src="scripts/services/requestService.js"></script>
+        <script src="scripts/services/patientService.js"></script>
+
+        <!--Directives-->
+        <script src="scripts/directives/passwordMatchDirective.js"></script>
+        <script src="scripts/directives/passwordStrengthDirective.js"></script>
+</body>
+</html>

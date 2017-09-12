@@ -1,0 +1,24 @@
+﻿.sign-up-card{
+    margin-top: 2%;
+    margin-bottom: 5%;
+    font-size: 15px;
+}
+.format{
+    margin-bottom: 2%;
+}
+.password-strength-indicator {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  width: 5px;
+  padding: 0 15px;
+}
+
+.password-strength-indicator span {
+  display: block;
+  width: 5px;
+  height: 5px;
+  margin-bottom: 2px;
+  background: #ebeef1;
+  border-radius: 5px;
+}

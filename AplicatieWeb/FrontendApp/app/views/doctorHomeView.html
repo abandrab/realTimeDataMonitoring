@@ -1,0 +1,12 @@
+﻿<div class="col-md-8 col-md-offset-2">
+  <div class="panel panel-default card sign-up-card">
+    <div class="panel-body primary-font" style="padding-bottom:5% ">
+      <h3 class="title" style="margin-left: 5%">Pacienți</h3>
+      <div ng-repeat="patient in patients track by $index">
+        <div class="tile">
+          <a href="" ng-click="view(patient)">{{patient.UserDetails.FirstName}} {{patient.UserDetails.LastName}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

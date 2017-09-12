@@ -1,0 +1,28 @@
+﻿<div class="col-md-10 col-md-offset-1 primary-font">
+  <div class="panel panel-default signup-card ">
+    <div class="panel-body" style="padding-bottom: 5%;">
+        <div class="container">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+              <form class="form-search form-horizontal" id="custom-search-form" style="padding-left:5%; padding-bottom:0%;" ng-submit="searchResults()">
+                <div class="form-group">
+                  <div class="icon-addon addon-lg">
+                    <input type="text" placeholder="Caută medic..." ng-model="searchString" class="form-control" id="doctor">
+                    <label for="doctor" class="glyphicon glyphicon-search" rel="tooltip" title=""></label>
+                  </div>
+                </div>
+              </form>
+              </div> 
+        </div>
+
+      <p style="color:darkred; margin-left:5%;" ng-if="sentRequest">Ai trimis deja o cerere</p>
+      <div ng-repeat="(key, result) in allResults track by $index">
+        <div class="tile">
+          <a href="" ng-click="">{{result}}</a>
+          <button class="btn btn-success pull-right btn-xs" ng-click="add(key)" ng-if="!sentRequest && !(myDoctorId === key)">Adaugă</button>
+          <p ng-if="(myDoctorId === key)">Medicul tău</p>
+        </div>
+      </div>
+      <div style="color:darkred; margin-left:5%;">{{message}}</div>
+    </div>
+  </div>
+</div>

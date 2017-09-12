@@ -1,0 +1,121 @@
+﻿<div class="col-md-10 col-md-offset-1">
+  <div class="panel panel-default card sign-up-card" style="min-width: 500px;">
+    <div class="panel-body primary-font" style="padding-bottom:5%">
+      <div ng-controller="PatientHomeController">
+      <div class="start-view col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4" ng-if="!started">
+        <div class="btn btn-success col-md-12 col-sm-12 col-xs-12 " ng-click="start()">Start</div>
+        <div class="chart-msg chart-text"> {{msg}}</div>
+      </div>
+      <div ng-if="started">
+        <div class="col-md-12">
+          <div class="col-md-6" ng-if="spo2" ng-controller="Spo2Controller">
+            <div class="col-md-12 chart-card">
+              <div class="chart-text">Forma de undă SpO2 (pletismogramă)</div>
+              <epoch-live-line chart-height='height'
+                               chart-data='lineSW'
+                               chart-stream='feedSW'
+                               chart-axes='axes'
+                               chart-range='rangeSW'
+                               chart-queue-size='1'>
+              </epoch-live-line>
+            </div>
+            <div class="chart-text chart-msg">{{message}}</div>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-6 chart-card" ng-controller="PanelController">
+            <div class="chart-panel">
+              <div class="col-md-12">{{temperature}}</div>
+              <div class="col-md-12">
+                {{SPO2Pulse}}
+              </div>
+              <div class="col-md-12">
+                {{SO}}
+              </div>
+              <div class="col-md-12">
+                {{EKGPulse}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+        <div class="col-md-6" ng-if="ecg" ng-controller="EkgController">
+          <div class="chart-text chart-msg">{{message}}</div>
+          <div class="col-md-12 chart-card">
+            <div class="chart-text">ECG I</div>
+            <epoch-live-line
+                             chart-height='height'                             
+                             chart-data='lineEKG1'
+                             chart-stream='feedEKG1'
+                             chart-axes='axes'
+                             chart-range='rangeEKG'
+                             chart-queue-size='1'>
+            </epoch-live-line>
+          </div>
+          <div class="col-md-12 chart-card">
+            <div class="chart-text">ECG II</div>
+            <epoch-live-line 
+                             chart-height='height'                             
+                             chart-data='lineEKG2'
+                             chart-strveam='feedEKG2'
+                             chart-axes='axes'
+                             chart-range='rangeEKG'
+                             chart-queue-size='1'>
+            </epoch-live-line>
+          </div>
+          <div class="col-md-12 chart-card">
+            <div class="chart-text">ECG III</div>
+            <epoch-live-line 
+                             chart-height='height'                             
+                             chart-data='lineEKG3'
+                             chart-stream='feedEKG3'
+                             chart-axes='axes'
+                             chart-range='rangeEKG'
+                             chart-queue-size='1'>
+            </epoch-live-line>
+          </div>
+       </div>
+
+       <div class="col-md-6" ng-if="tac" ng-controller="AcController">
+          <div class="chart-text chart-msg">{{message}}</div>
+          <div class="col-md-12 chart-card">
+            <div class="chart-text">Accelerația pe axa x</div>
+            <epoch-live-line 
+                             chart-height='height'                             
+                             chart-data='lineX'
+                             chart-stream='feedX'
+                             chart-axes='axes'
+                             chart-range='range'
+                             chart-queue-size='1'>
+            </epoch-live-line>
+          </div>
+          <div class="col-md-12 chart-card">
+            <div class="chart-text">Accelerația pe axa y</div>
+            <epoch-live-line 
+                             chart-height='height'                             
+                             chart-data='lineY'
+                             chart-stream='feedY'
+                             chart-axes='axes'
+                             chart-range='range'
+                             chart-queue-size='1'>
+            </epoch-live-line>
+          </div>
+          <div class="col-md-12 chart-card">
+            <div class="chart-text">Accelerația pe axa z</div>
+            <epoch-live-line 
+                             chart-height='height'                             
+                             chart-data='lineZ'
+                             chart-stream='feedZ'
+                             chart-axes='axes'
+                             chart-range='range'
+                             chart-queue-size='1'>
+            </epoch-live-line>
+          </div>
+        </div>
+        </div>
+        
+        <div class="col-md-12 col-sm-12 col-xs-12"><div class="pull-right col-md-3 col-xs-3 col-sm-3 btn btn-danger" ng-click="stop()">Stop</div></div>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>

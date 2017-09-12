@@ -1,0 +1,395 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vanguard</name>
+    </assembly>
+    <members>
+        <member name="T:Vanguard.ExceptionResource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Vanguard.ExceptionResource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Vanguard.ExceptionResource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Vanguard.ExceptionResource.ValueEmptyExceptionMessage">
+            <summary>
+              Looks up a localized string similar to Value cannot be empty.
+            </summary>
+        </member>
+        <member name="P:Vanguard.ExceptionResource.ValueNullExceptionMessage">
+            <summary>
+              Looks up a localized string similar to Value cannot be null.
+            </summary>
+        </member>
+        <member name="T:Vanguard.GuardException">
+            <summary>
+            The exception that is thrown when the <see cref="T:Vanguard.Guard"/> class detects 
+            an error.
+            </summary>
+        </member>
+        <member name="M:Vanguard.GuardException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vanguard.GuardException"/> class.
+            </summary>
+        </member>
+        <member name="M:Vanguard.GuardException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vanguard.GuardException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Vanguard.GuardException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vanguard.GuardException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">
+            The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.
+            </param>
+        </member>
+        <member name="T:Vanguard.ValueEmptyException">
+            <summary>
+            The exception that is thrown when the <see cref="T:Vanguard.Guard"/> class detects 
+            an empty reference.
+            </summary>
+        </member>
+        <member name="M:Vanguard.ValueEmptyException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vanguard.ValueEmptyException"/> class.
+            </summary>
+        </member>
+        <member name="M:Vanguard.ValueEmptyException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vanguard.ValueEmptyException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Vanguard.ValueEmptyException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vanguard.ValueEmptyException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">
+            The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.
+            </param>
+        </member>
+        <member name="T:Vanguard.ValueNullException">
+            <summary>
+            The exception that is thrown when the <see cref="T:Vanguard.Guard"/> class detects 
+            a null reference (Nothing in Visual Basic).
+            </summary>
+        </member>
+        <member name="M:Vanguard.ValueNullException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vanguard.ValueNullException"/> class.
+            </summary>
+        </member>
+        <member name="M:Vanguard.ValueNullException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vanguard.ValueNullException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Vanguard.ValueNullException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vanguard.ValueNullException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">
+            The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.
+            </param>
+        </member>
+        <member name="T:Vanguard.ValueOutOfRangeException">
+            <summary>
+            The exception that is thrown when the <see cref="T:Vanguard.Guard"/> class detects 
+            an out of range reference.
+            </summary>
+        </member>
+        <member name="M:Vanguard.ValueOutOfRangeException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vanguard.ValueOutOfRangeException"/> class.
+            </summary>
+        </member>
+        <member name="M:Vanguard.ValueOutOfRangeException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vanguard.ValueOutOfRangeException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Vanguard.ValueOutOfRangeException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vanguard.ValueOutOfRangeException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">
+            The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.
+            </param>
+        </member>
+        <member name="T:Vanguard.Guard">
+            <summary>
+            A static helper class that includes various parameter checking routines.
+            </summary>
+        </member>
+        <member name="M:Vanguard.Guard.ArgumentNotNull(System.Object,System.String)">
+            <summary>
+            Ensures that a parameter value is not null,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The parameter value.</param>
+            <param name="name">Name of the parameter.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when the value is null.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ArgumentNotNull(System.Object,System.String,System.String)">
+            <summary>
+            Ensures that a parameter value is not null,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The parameter value.</param>
+            <param name="name">Name of the parameter.</param>
+            <param name="message">The exception message.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when the value is null.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ArgumentNotNullOrEmpty(System.String,System.String)">
+            <summary>
+            Ensures that a parameter value is not null or empty,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The parameter value.</param>
+            <param name="name">Name of the parameter.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when the value is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the value contains an empty string.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ArgumentNotNullOrEmpty(System.String,System.String,System.String)">
+            <summary>
+            Ensures that a parameter value is not null or empty,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The parameter value.</param>
+            <param name="name">Name of the parameter.</param>
+            <param name="message">The exception message.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when the value is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the value contains an empty string.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ArgumentNotNullOrEmpty(System.Nullable{System.Guid},System.String)">
+            <summary>
+            Ensures that a parameter value is not null or empty,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The parameter value.</param>
+            <param name="name">Name of the parameter.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when the value is null.</exception>
+            /// <exception cref="T:System.ArgumentException">Thrown when the value contains an empty Guid.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ArgumentNotNullOrEmpty(System.Nullable{System.Guid},System.String,System.String)">
+            <summary>
+            Ensures that a parameter value is not null or empty,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The parameter value.</param>
+            <param name="name">Name of the parameter.</param>
+            <param name="message">The exception message.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when the value is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the value contains an empty Guid.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ArgumentInRange(System.Int64,System.Int64,System.Int64,System.String)">
+            <summary>
+            Ensures that a parameter value is not out of range,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The parameter value.</param>
+            <param name="minimum">The minimum value of an argument.</param>
+            <param name="maximum">The maximum value of an argument.</param>
+            <param name="name">Name of the parameter.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when the value is out of range.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ArgumentInRange(System.Int64,System.Int64,System.Int64,System.String,System.String)">
+            <summary>
+            Ensures that a parameter value is not out of range,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The parameter value.</param>
+            <param name="minimum">The minimum value of an argument.</param>
+            <param name="maximum">The maximum value of an argument.</param>
+            <param name="name">Name of the parameter.</param>
+            <param name="message">The exception message.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when the value is out of range.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ArgumentInRange(System.Double,System.Double,System.Double,System.String)">
+            <summary>
+            Ensures that a parameter value is not out of range,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The parameter value.</param>
+            <param name="minimum">The minimum value of an argument.</param>
+            <param name="maximum">The maximum value of an argument.</param>
+            <param name="name">Name of the parameter.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when the value is out of range.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ArgumentInRange(System.Double,System.Double,System.Double,System.String,System.String)">
+            <summary>
+            Ensures that a parameter value is not out of range,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The parameter value.</param>
+            <param name="minimum">The minimum value of an argument.</param>
+            <param name="maximum">The maximum value of an argument.</param>
+            <param name="name">Name of the parameter.</param>
+            <param name="message">The exception message.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when the value is out of range.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ArgumentInRange(System.Decimal,System.Decimal,System.Decimal,System.String)">
+            <summary>
+            Ensures that a parameter value is not out of range,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The parameter value.</param>
+            <param name="minimum">The minimum value of an argument.</param>
+            <param name="maximum">The maximum value of an argument.</param>
+            <param name="name">Name of the parameter.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when the value is out of range.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ArgumentInRange(System.Decimal,System.Decimal,System.Decimal,System.String,System.String)">
+            <summary>
+            Ensures that a parameter value is not out of range,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The parameter value.</param>
+            <param name="minimum">The minimum value of an argument.</param>
+            <param name="maximum">The maximum value of an argument.</param>
+            <param name="name">Name of the parameter.</param>
+            <param name="message">The exception message.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when the value is out of range.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ValueNotNull(System.Object)">
+            <summary>
+            Ensures that a value is not null,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The value.</param>
+            <exception cref="T:Vanguard.ValueNullException">Thrown when the value is null.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ValueNotNull(System.Object,System.String)">
+            <summary>
+            Ensures that a value is not null,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="message">The exception message.</param>
+            <exception cref="T:Vanguard.ValueNullException">Thrown when the value is null.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ValueNotNullOrEmpty(System.String)">
+            <summary>
+            Ensures that a value is not null or empty,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The value.</param>
+            <exception cref="T:Vanguard.ValueNullException">Thrown when the value is null.</exception>
+            <exception cref="T:Vanguard.ValueEmptyException">Thrown when the value contains an empty string.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ValueNotNullOrEmpty(System.String,System.String)">
+            <summary>
+            Ensures that a value is not null or empty,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="message">The exception message.</param>
+            <exception cref="T:Vanguard.ValueNullException">Thrown when the value is null.</exception>
+            <exception cref="T:Vanguard.ValueEmptyException">Thrown when the value contains an empty string.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ValueNotNullOrEmpty(System.Nullable{System.Guid})">
+            <summary>
+            Ensures that a value is not null or empty,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The value.</param>
+            <exception cref="T:Vanguard.ValueNullException">Thrown when the value is null.</exception>
+            <exception cref="T:Vanguard.ValueEmptyException">Thrown when the value contains an empty Guid.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ValueNotNullOrEmpty(System.Nullable{System.Guid},System.String)">
+            <summary>
+            Ensures that a value is not null or empty,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="message">The exception message.</param>
+            <exception cref="T:Vanguard.ValueNullException">Thrown when the value is null.</exception>
+            <exception cref="T:Vanguard.ValueEmptyException">Thrown when the value contains an empty Guid.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ValueInRange(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Ensures that a value is not out of range,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="minimum">The minimum value.</param>
+            <param name="maximum">The maximum value.</param>
+            <exception cref="T:Vanguard.ValueOutOfRangeException">Thrown when the value is out of range.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ValueInRange(System.Int64,System.Int64,System.Int64,System.String)">
+            <summary>
+            Ensures that a value is not out of range,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="minimum">The minimum value.</param>
+            <param name="maximum">The maximum value.</param>
+            <param name="message">The exception message.</param>
+            <exception cref="T:Vanguard.ValueOutOfRangeException">Thrown when the value is out of range.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ValueInRange(System.Double,System.Double,System.Double)">
+            <summary>
+            Ensures that a value is not out of range,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="minimum">The minimum value.</param>
+            <param name="maximum">The maximum value.</param>
+            <exception cref="T:Vanguard.ValueOutOfRangeException">Thrown when the value is out of range.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ValueInRange(System.Double,System.Double,System.Double,System.String)">
+            <summary>
+            Ensures that a value is not out of range,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="minimum">The minimum value.</param>
+            <param name="maximum">The maximum value.</param>
+            <param name="message">The exception message.</param>
+            <exception cref="T:Vanguard.ValueOutOfRangeException">Thrown when the value is out of range.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ValueInRange(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Ensures that a value is not out of range,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="minimum">The minimum value.</param>
+            <param name="maximum">The maximum value.</param>
+            <exception cref="T:Vanguard.ValueOutOfRangeException">Thrown when the value is out of range.</exception>
+        </member>
+        <member name="M:Vanguard.Guard.ValueInRange(System.Decimal,System.Decimal,System.Decimal,System.String)">
+            <summary>
+            Ensures that a value is not out of range,
+            otherwise an exception is thrown.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="minimum">The minimum value.</param>
+            <param name="maximum">The maximum value.</param>
+            <param name="message">The exception message.</param>
+            <exception cref="T:Vanguard.ValueOutOfRangeException">Thrown when the value is out of range.</exception>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,76 @@
+﻿<div class="col-md-8 col-md-offset-2">
+  <div class="panel panel-default card sign-up-card">
+    <div class="panel-body">
+      
+      <form class="form-horizontal primary-font" method="post" name="signupForm">
+        <h3 class="title text-center">Adaugă utilizator nou</h3>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3" for="Type">Profesie:</label>
+          <div class="col-md-9 col-sm-9">
+            <select class="form-control" name="type" id="type" ng-model="type">
+              <option value="Doctor">Medic</option>
+              <option value="Assistant">Asistent</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : signupForm.email.$invalid && signupForm.email.$dirty}">
+          <label class="control-label col-md-3 col-sm-3" for="email">Email:</label>
+          <div class="col-md-9 col-sm-9">
+            <input type="email" class="form-control" name="email" id="email" ng-blur="checkEmail()" ng-model="dataObj.Userdetails.Email" exists required autofocus ng-pattern="emailPattern" />
+            <div class="help-block text-danger" ng-if="signupForm.email.$dirty" ng-messages="signupForm.email.$error" style="color:#a94442">
+              <div ng-message="required">Introduceți un email!</div>
+              <div ng-message="pattern">Email invalid!</div>
+              <div ng-message="exists">Există deja o persoană înregistrată cu acest email!</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : signupForm.pwd.$invalid && signupForm.pwd.$dirty }">
+          <label class="control-label col-md-3 col-sm-3" for="pwd">Parolă:</label>
+          <div class="col-md-9 col-sm-9">
+            <input password-strength type="password" class="form-control" id="pwd" name="pwd" ng-model="dataObj.UserDetails.Password" required>
+            <span class="password-strength-indicator"></span>
+            <div class="help-block text-danger" ng-if="signupForm.pwd.$dirty" ng-messages="signupForm.pwd.$error">
+              <div ng-message="required">Introduceți o parolă!</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : signupForm.cpwd.$invalid && signupForm.cpwd.$dirty }">
+          <label class="control-label col-md-3 col-sm-3" for="cpwd">Confirmă parola:</label>
+          <div class="col-md-9 col-sm-9">
+            <input password-match="dataObj.UserDetails.Password" type="password" class="form-control" name="cpwd" id="cpwd" ng-model="confirmPassword">
+            <div class="help-block text-danger" ng-if="signupForm.cpwd.$dirty" ng-messages="signupForm.cpwd.$error">
+              <div ng-message="compareTo">Parolele nu se potrivesc!</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : signupForm.lname.$invalid && signupForm.lname.$dirty }">
+          <label class="control-label col-md-3 col-sm-3" for="lname">Nume:</label>
+          <div class="col-md-9 col-sm-9">
+            <input type="text" class="form-control" name="lname" id="lname" ng-model="dataObj.Userdetails.LastName" required autofocus ng-pattern="namePattern" />
+            <div class="help-block text-danger" ng-if="signupForm.lname.$dirty" ng-messages="signupForm.lname.$error">
+              <div ng-message="required">Introduceți un nume!</div>
+              <div ng-message="pattern">Nume invalid!</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : signupForm.fname.$invalid && signupForm.fname.$dirty }">
+          <label class="control-label col-md-3 col-sm-3" for="fname">Prenume:</label>
+          <div class="col-md-9 col-sm-9">
+            <input type="text" class="form-control" name="fname" id="fname" ng-model="dataObj.Userdetails.FirstName" required autofocus ng-pattern="namePattern" />
+            <div class="help-block text-danger" ng-if="signupForm.fname.$dirty" ng-messages="signupForm.fname.$error">
+              <div ng-message="required">Introduceți un prenume!</div>
+              <div ng-message="pattern">Prenume invalid!</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-9 col-md-offset-3">
+            <button type="submit" class="col-md-5 col-sm-4 col-xs-5 btn btn-success pull-right" ng-click="addUser()">Adaugă</button>
+          </div>
+        </div>
+        <hr>
+      </form>
+    </div>
+  </div>
+</div>

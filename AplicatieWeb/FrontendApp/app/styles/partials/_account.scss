@@ -1,0 +1,16 @@
+﻿@media screen and (min-width: 768px) {
+  .screen-border {
+    border-right: 1px solid;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .mobile-border {
+    border-bottom: 1px solid;
+    padding-bottom: 3%;
+  }
+  .mobile-style{
+    padding-top: 3%;
+  }
+}

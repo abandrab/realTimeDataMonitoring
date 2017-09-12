@@ -1,0 +1,30 @@
+﻿.btn {
+    border-radius: 2px;
+}
+.btn-format{
+  margin-top: 1%;
+}
+.btn-success{
+   background-color: $primaryColor;
+   border-color: $primaryColor;
+}
+.btn-success:hover {
+    background-color: $primaryColorHover;
+    border-color: $primaryColorHover;
+}
+.btn-success:active {
+  background-color: $primaryColorHover;
+  border-color: $primaryColorHover;
+}
+.btn-success:focus {
+  background-color: $primaryColorHover;
+  border-color: $primaryColorHover;
+}
+.btn-danger{
+    background-color: $cancelColor;
+    border-color: $cancelColor;
+}
+.btn-danger:hover {
+  background-color: $cancelColorHover;
+  border-color: $cancelColorHover;
+}

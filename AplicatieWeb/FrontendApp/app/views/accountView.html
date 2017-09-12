@@ -1,0 +1,52 @@
+﻿<div class="container">
+  <div class="panel panel-default card sign-up-card">
+    <div class="panel-body">
+      <div class="primary-font">
+        <h3 class="col-md-12 col-sm-12" align="center">{{user.UserDetails.FirstName}} {{user.UserDetails.LastName}}</h3>
+        <div><hr></div>        
+          <div class="col-md-8 col-sm-8 col-xs-12 primary-font-size screen-border mobile-border">
+            <div class="form-group">
+              <div class="col-md-3 col-sm-4 col-xs-4 control-label" align="right">Email</div>
+              <div class="col-md-9 col-sm-8 col-xs-8">{{user.UserDetails.Email}}</div>
+            </div>
+            <div class="form-group" ng-if="user.UserDetails.Phone !==null">
+              <div class="col-md-3 col-sm-4  col-xs-4  control-label" align="right">Telefon</div>
+              <div class="col-md-9 col-sm-8 col-xs-8">{{user.UserDetails.Phone}}</div>
+            </div>
+            <div class="form-group" ng-if="user.UserDetails.Address !==null">
+              <div class="col-md-3 col-sm-4 col-xs-4  control-label" align="right">Adresa</div>
+              <div class="col-md-9 col-sm-8 col-xs-8">
+                Strada {{user.UserDetails.Address.Street}}
+                Nr. {{user.UserDetails.Address.Number}}, {{user.UserDetails.Address.City}}
+                {{user.UserDetails.Address.Country}}
+              </div>
+            </div>
+            <div ng-if="user.UserDetails.Role == 'Patient'">
+              <div class="form-group" ng-if="user.Birthdate!==null">
+                <div class="col-md-3 col-sm-4 col-xs-4  control-label" align="right">Data nașterii</div>
+                <div class="col-md-9 col-sm-8 col-xs-8">{{birthdate}}</div>
+              </div>
+              <div class="form-group" ng-if="user.RangeNumber !==null">
+                <div class="col-md-3 col-sm-4  col-xs-4  control-label" align="right">Seria și numărul</div>
+                <div class="col-md-9 col-sm-8 col-xs-8">{{user.RangeNumber}}</div>
+              </div>
+              <div class="form-group" ng-if="user.CNP!==null">
+                <div class="col-md-3 col-sm-4  col-xs-4 control-label" align="right">CNP</div>
+                <div class="col-md-9 col-sm-8 col-xs-8">{{user.CNP}}</div>
+              </div>
+            </div>
+      </div> 
+        <div class="col-md-4 col-sm-4 col-xs-12 primary-font-size mobile-style">
+          <a ui-sref="editAccount" class="col-md-12 col-sm-12 col-xs-12">
+            <span class="text-link-button" style="padding-right: 3%">Editare</span>
+          </a>
+          <a ui-sref="changePass" class="col-md-12 col-sm-12 col-xs-12">
+            <span class="text-link-button">Schimbă parola</span>
+          </a>
+          <a href="" ng-click="deleteModal()" class="col-md-12 col-sm-12 col-xs-12">
+            <span class="text-link-button" style="color:#a94442">Șterge contul</span>
+          </a>
+        </div>   
+    </div>
+  </div>
+</div>

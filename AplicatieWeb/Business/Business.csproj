@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{22EC6C75-4CEE-4D8F-B22B-0CCE3CA925E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Business</RootNamespace>
+    <AssemblyName>Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.11.0.92, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <HintPath>..\packages\mongocsharpdriver.1.11.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.11.0.92, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <HintPath>..\packages\mongocsharpdriver.1.11.0\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoRepository.Net45, Version=1.6.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoRepository.1.6.11\lib\net45\MongoRepository.Net45.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PWDTK, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PWDTK.2.0.0.2\lib\net451\PWDTK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Vanguard, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0ce5bfffe65a59a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vanguard.2.3.0\lib\net45\Vanguard.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLayerAccess.cs" />
+    <Compile Include="CommandHandlers\AddDatasCommandHandler.cs" />
+    <Compile Include="CommandHandlers\ApproveRequestCommandHandler.cs" />
+    <Compile Include="CommandHandlers\AddRequestCommandHandler.cs" />
+    <Compile Include="CommandHandlers\ChangePasswordCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DeleteAccountCommandHandler.cs" />
+    <Compile Include="CommandHandlers\DeleteRequestCommandHandler.cs" />
+    <Compile Include="CommandHandlers\EditDoctorCommandHandler.cs" />
+    <Compile Include="CommandHandlers\EditPatientCommandHandler.cs" />
+    <Compile Include="CommandHandlers\RegisterAdministratorCommandHandler.cs" />
+    <Compile Include="CommandHandlers\RegisterAssistantCommandHandler.cs" />
+    <Compile Include="CommandHandlers\RegisterDoctorCommandHandler.cs" />
+    <Compile Include="CommandHandlers\RegisterPatientCommandHandler.cs" />
+    <Compile Include="CommandHandlers\RejectRequestCommandHandler.cs" />
+    <Compile Include="Commands\AddDatasCommand.cs" />
+    <Compile Include="Commands\ApproveRequestCommand.cs" />
+    <Compile Include="Commands\AddRequestCommand.cs" />
+    <Compile Include="Commands\ChangePasswordCommand.cs" />
+    <Compile Include="Commands\DeleteAccountCommand.cs" />
+    <Compile Include="Commands\DeleteRequestCommand.cs" />
+    <Compile Include="Commands\EditDoctorCommand.cs" />
+    <Compile Include="Commands\EditPatientCommand.cs" />
+    <Compile Include="Commands\RegisterAdministratorCommand.cs" />
+    <Compile Include="Commands\RegisterAssistantCommand.cs" />
+    <Compile Include="Commands\RegisterDoctorCommand.cs" />
+    <Compile Include="Commands\RegisterPatientCommand.cs" />
+    <Compile Include="Commands\RejectRequestCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\CheckPasswordQuery.cs" />
+    <Compile Include="Queries\GetAllUsersQuery.cs" />
+    <Compile Include="Queries\GetCoordinatorQuery.cs" />
+    <Compile Include="Queries\GetDoctorByIdQuery.cs" />
+    <Compile Include="Queries\GetDoctorInfosQuery.cs" />
+    <Compile Include="Queries\GetDoctorQuery.cs" />
+    <Compile Include="Queries\GetEmailQuery.cs" />
+    <Compile Include="Queries\GetPatientByIdQuery.cs" />
+    <Compile Include="Queries\GetPatientDoctorQuery.cs" />
+    <Compile Include="Queries\GetPatientEmailQuery.cs" />
+    <Compile Include="Queries\GetPatientQuery.cs" />
+    <Compile Include="Queries\GetPatientInfosQuery.cs" />
+    <Compile Include="Queries\GetPatientRequestQuery.cs" />
+    <Compile Include="Queries\GetPatientSensorsQuery.cs" />
+    <Compile Include="Queries\GetPatientsQuery.cs" />
+    <Compile Include="Queries\GetRequestsQuery.cs" />
+    <Compile Include="Queries\GetSearchQuery.cs" />
+    <Compile Include="Queries\GetUserQuery.cs" />
+    <Compile Include="QueryHandlers\CheckPasswordQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetAllUsersQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetCoordinatorQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetDoctorInfosQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetDoctorQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetDoctorByIdQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetEmailQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetPatientByIdQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetPatientDoctorQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetPatientEmailQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetPatientQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetPatientInfosQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetPatientRequestQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetPatientSensorsQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetPatientsQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetRequestsQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetSearchQueryHandler.cs" />
+    <Compile Include="QueryHandlers\GetUserQueryHandler.cs" />
+    <Compile Include="QueryResults\CheckPasswordQueryResult.cs" />
+    <Compile Include="QueryResults\GetAllUsersQueryResut.cs" />
+    <Compile Include="QueryResults\GetCoordinatorQueryResult.cs" />
+    <Compile Include="QueryResults\GetDoctorByIdQueryResult.cs" />
+    <Compile Include="QueryResults\GetDoctorInfosQueryResult.cs" />
+    <Compile Include="QueryResults\GetDoctorQueryResult.cs" />
+    <Compile Include="QueryResults\GetEmailQueryResult.cs" />
+    <Compile Include="QueryResults\GetPatientByIdQueryResult.cs" />
+    <Compile Include="QueryResults\GetPatientDoctorQueryResult.cs" />
+    <Compile Include="QueryResults\GetPatientEmailQueryResult.cs" />
+    <Compile Include="QueryResults\GetPatientQueryResult.cs" />
+    <Compile Include="QueryResults\GetPatientInfosQueryResult.cs" />
+    <Compile Include="QueryResults\GetPatientRequestQueryResult.cs" />
+    <Compile Include="QueryResults\GetPatientSensorsQueryResult.cs" />
+    <Compile Include="QueryResults\GetPatientsQueryResult.cs" />
+    <Compile Include="QueryResults\GetRequestsQueryResult.cs" />
+    <Compile Include="QueryResults\GetSearchQueryResult.cs" />
+    <Compile Include="QueryResults\GetUsernameQueryResult.cs" />
+    <Compile Include="QueryResults\GetUserQueryResult.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Common.Layer\Common.Layer.csproj">
+      <Project>{925AC638-9316-4D9C-A4C5-A1716C78D54E}</Project>
+      <Name>Common.Layer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Model\Domain.Model.csproj">
+      <Project>{CE9B4A67-59F4-4FB6-BA96-A49589D769B2}</Project>
+      <Name>Domain.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MongoDb.Access\MongoDb.Access.csproj">
+      <Project>{7E0B3C92-A1E0-44C6-A213-7AF0209EDC84}</Project>
+      <Name>MongoDb.Access</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sql.Server.Access\Sql.Server.Access.csproj">
+      <Project>{99270323-F7A6-43CF-8082-836E1B860310}</Project>
+      <Name>Sql.Server.Access</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

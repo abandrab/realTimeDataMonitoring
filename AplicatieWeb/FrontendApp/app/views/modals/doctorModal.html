@@ -1,0 +1,12 @@
+﻿<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+<div class="modal-body" style="margin: 0 auto;">
+  <p>{{message}}</p>
+</div>
+<div class="modal-footer btn-group-xs">
+  <div ng-controller="NavbarController">
+    <button class="btn-primary col-md-3 col-sm-3 col-xs-3" ng-click="approve(patientId)">Acceptă</button>
+    <button class="btn-primary col-md-3 col-sm-3 col-xs-3" ng-click="reject(patientId)">Respinge</button>
+  </div>
+</div>

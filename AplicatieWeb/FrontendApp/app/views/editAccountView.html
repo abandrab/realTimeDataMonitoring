@@ -1,0 +1,131 @@
+﻿<div class="col-md-8 col-md-offset-2">
+  <div class="panel panel-default card sign-up-card">
+    <div class="panel-body">
+      <form class="form-horizontal primary-font" method="post" name="signupForm" id=" signupForm">
+        <h3 class="title text-center">Editare cont</h3>
+        <div class="form-group" ng-class="{ 'has-error' : signupForm.email.$invalid && signupForm.email.$dirty }">
+          <label class="control-label col-md-3 col-sm-3" for="email">Email:</label>
+          <div class="col-md-9 col-sm-9">
+            <input type="email" class="form-control" name="email" id="email" ng-model="dataObj.UserDetails.Email" required autofocus ng-pattern="emailPattern"
+                   ng-value ="dataObj.UserDetails.Email"/>
+            <div class="help-block text-danger" ng-if="signupForm.email.$dirty" ng-messages="signupForm.email.$error">
+              <div ng-message="required">Introduceți un email!</div>
+              <div ng-message="pattern">Email invalid!</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : signupForm.lname.$invalid && signupForm.lname.$dirty }">
+          <label class="control-label col-md-3 col-sm-3" for="lname">Nume:</label>
+          <div class="col-md-9 col-sm-9">
+            <input type="text" class="form-control" name="lname" id="lname" ng-model="dataObj.UserDetails.LastName" required autofocus ng-pattern="namePattern" 
+                   ng-value ="dataObj.UserDetails.LastName"/>
+            <div class="help-block text-danger" ng-if="signupForm.lname.$dirty" ng-messages="signupForm.lname.$error">
+              <div ng-message="required">Introduceți un nume!</div>
+              <div ng-message="pattern">Nume invalid!</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : signupForm.fname.$invalid && signupForm.fname.$dirty }">
+          <label class="control-label col-md-3 col-sm-3" for="fname">Prenume:</label>
+          <div class="col-md-9 col-sm-9">
+            <input type="text" class="form-control" name="fname" id="fname" ng-model="dataObj.UserDetails.FirstName" required autofocus ng-pattern="namePattern" 
+                   ng-value ="dataObj.UserDetails.FirstName"/>
+            <div class="help-block text-danger" ng-if="signupForm.fname.$dirty" ng-messages="signupForm.fname.$error">
+              <div ng-message="required">Introduceți un prenume!</div>
+              <div ng-message="pattern">Prenume invalid!</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3" for="sex">Sex:</label>
+          <div class="col-md-9 col-sm-9">
+            <select class="form-control" name="sex" id="sex" ng-model="dataObj.UserDetails.Sex" ng-value ="dataObj.UserDetails.Sex">
+              <option value="M">Masculin</option>
+              <option value="F">Feminin</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : signupForm.phone.$invalid && signupForm.phone.$dirty }">
+          <label class="control-label col-md-3 col-sm-3" for="phone">Telefon:</label>
+          <div class="col-md-9 col-sm-9">
+            <input type="text" class="form-control" name="phone" id="phone" ng-model="dataObj.UserDetails.Phone" data-mask="(+99)-999-999-999" placeholder="ex: (+40) 123 456 789" ng-pattern="phonePattern" 
+                   ng-value ="dataObj.UserDetails.Phone">
+            <div class="help-block text-danger" ng-if="signupForm.phone.$dirty" ng-messages="signupForm.phone.$error">
+              <div ng-message="pattern">Telefon invalid! Exemplu de formate acceptate: (+40)-123-456-789, (+40) 123 456 789, (+4) 012 345 6789, (+1) (234) 56 89 901</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3">Adresă:</label>
+          <div class="col-md-9 col-sm-9">
+            <div class="row">
+              <div class="col-md-6 col-sm-6  format">
+                <input type="text" class="form-control" id="street" name="street" placeholder="Stradă" ng-model="dataObj.Userdetails.Address.Street" ng-pattern="streetPattern" ng-pattern-restrict>
+              </div>
+              <div class="col-md-6 col-sm-6  format">
+                <input type="text" class="form-control" id="number" name="number" placeholder="Număr" ng-model="dataObj.Userdetails.Address.Number" ng-pattern="streetNumberPattern" ng-pattern-restrict>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-sm-6 format">
+                <input type="text" class="form-control" name="city" id="city" placeholder="Oraș" ng-model="dataObj.Userdetails.Address.City" ng-pattern="streetPattern" ng-pattern-restrict>
+              </div>
+              <div class="col-md-6 col-sm-6 format">
+                <country-select class="form-control col-md-6 col-sm-6" name="country" id="country" placeholder="Țară" ng-model="dataObj.Userdetails.Address.Country"></country-select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div ng-if="dataObj.UserDetails.Role == 'Patient'">
+          <div class="form-group" ng-class="{ 'has-error' : signupForm.cnp.$invalid && signupForm.cnp.$dirty }">
+            <label class="control-label col-md-3 col-sm-3" for="cnp">CNP:</label>
+            <div class="col-md-9 col-sm-9">
+              <input type="text" class="form-control" name="cnp" id="cnp" ng-model="dataObj.CNP" ng-pattern="cnpPattern" autofocus
+                     ng-value="dataObj.CNP" />
+              <div class="help-block text-danger" ng-if="signupForm.cnp.$dirty" ng-messages="signupForm.cnp.$error">
+                <div ng-message="pattern">CNP invalid!</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3" for="nr">Serie și Număr:</label>
+            <div class="col-md-9 col-sm-9">
+              <input type="text" class="form-control" name="nr" id="nr" ng-model="dataObj.RangeNumber" ng-pattern="numberPattern" ng-pattern-restrict
+                     ng-value="dataObj.RangeNumber">
+            </div>
+          </div>
+          <div class="form-group" ng-class="{ 'has-error' : signupForm.birthdate.$invalid && signupForm.birthdate.$dirty}">
+            <label class="control-label col-md-3 col-sm-3" for="birthdate">Data nașterii:</label>
+            <div class="col-md-9 col-sm-9"
+                 moment-picker="dataObj.Birthdate"
+                 format="YYYY-MM-DD">
+              <input class="form-control"
+                     placeholder="Selectează o dată"
+                     ng-model="dataObj.Birthdate"
+                     ng-model-options="{ updateOn: 'blur' }"
+                     ng-blur="check()"
+                     name="birthdate" id="birthdate" cnpbday>
+              <div class="help-block text-danger" ng-if="signupForm.birthdate.$error.cnpbday"
+                   ng-messages="signupForm.birthdate.$error" style="color:#a94442">
+                <div ng-message="cnpbday">CNP-ul și data nașterii nu se potrivesc!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <p ng-if="checkEmpty()" style="color:#a94442">Câmpurile cu * sunt obligatorii!</p>
+          <div class="col-md-offset-3">
+          <div class="col-md-6 ">
+            <button type="submit" class="btn btn-success btn-block btn-format" ng-disabled="checkEmpty() || signupForm.birthdate.$error.cnpbday"ng-click="update()">Salvează</button>
+          </div>
+          <div class="col-md-6">
+            <a class="btn btn-danger btn-block btn-format" ui-sref="account">Renunță</a>
+          </div> 
+           </div>
+        </div>
+        <hr>
+      </form>
+    </div>
+  </div>
+</div>
